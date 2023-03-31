@@ -1,0 +1,137 @@
+.course-section {
+    background-color: white;
+
+    .course-title {
+        width: 217.01px;
+        height: 24px;
+        left: 847.74px;
+        top: 144px;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+    }
+
+    .card {
+        // background-repeat: no-repeat;
+        // background-position: top right;
+        // background: url(../../imgs/Vector.svg) no-repeat top right;
+        background-size: 120px;
+        // background-color: red;
+        display: flex;
+        // gap: 10px;
+        justify-content: space-between;
+        flex-direction: column;
+        // width: 350px;
+        padding: 10px;
+        border: 1px solid rgb(216, 216, 216);
+        border-radius: 20px;
+        height: 80%;
+        position: relative;
+        overflow: hidden;
+
+        .completed{
+            font-size: 14px;
+            color: rgb(71, 71, 71);
+            .tick{
+                color: rgb(24, 149, 24);
+                transform: translateY(20%);
+            }
+        }
+
+        .vector {
+            position: absolute;
+            right: -10px;
+            top: -10px;
+            width: 150px;
+            stroke: black;
+            stop-color: red;
+            // z-index: -1;
+
+        }
+
+        .videos-btn {
+            gap: 3px;
+            padding: 5px;
+            padding-right: 7px;
+            font-size: 14px;
+            width: max-content;
+            height: max-content;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            background: rgba(37, 54, 88, 0.6);
+            border-radius: 4px;
+            // transform: rotate(180deg);
+        }
+
+        .card-bottom {
+            display: flex;
+            gap: 50px;
+            justify-content: space-between;
+            color: #253658;
+            .card-desc {
+                font-size: 14px;
+            }
+
+            .points {
+                display: grid;
+                // flex-wrap: wrap;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+                margin: 0;
+                padding: 0;
+
+                .card-point {
+                    // background: url(../../imgs/Ellipse.svg) no-repeat;
+                    // background-size: 7px;
+                    // background-position: left;
+                    list-style-type: none;
+                    font-size: 12px;
+                    // margin: 0;
+                    // padding: 0;
+                    margin-right: 15px;
+                    // margin-left: 15px;
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 12px;
+                    line-height: 140%;
+                    /* identical to box height, or 17px */
+
+
+                    /* BlueBlack/100 */
+
+                    color: #253658;
+                }
+            }
+
+            .go-btn {
+                cursor: pointer;
+                position: relative;
+                padding: 5px;
+                padding-left: 10px;
+                padding-right: 9px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                align-self: flex-end;
+                background: #253658;
+                color: white;
+                border-radius: 50%;
+                border: 0;
+                &>*{
+                    justify-self: center;
+                    height: 30px;
+                    width: 22px;
+                    // position: absolute;
+                    font-size: 11px;
+                }
+                // background-color: rgb(50, 145, 205);
+                // border: 0;
+                // border-radius: 50%;
+                // padding: 10px;
+            }
+        }
+    }
+}

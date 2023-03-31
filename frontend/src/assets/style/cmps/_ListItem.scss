@@ -1,0 +1,48 @@
+.list-item {
+    .play-pause.hidden{
+        display: none;
+    }
+    &:hover{
+        .done-icon{  
+            display: none;
+        }
+
+        .play-pause{
+            display: block;
+        }
+    }
+    .left-side {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        .play-btn{
+            cursor: pointer;
+            transform: translateY(5%);
+            margin-right: 2px;
+
+            .done-icon{
+               color: rgb(95, 158, 1);
+            }
+        }
+    }
+
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 140%;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-feature-settings: 'calt' off;
+
+    /* BlueBlack/100 */
+
+    color: #253658;
+
+    &.selected {
+        background: rgba(0, 171, 254, 0.08);
+    }
+}
