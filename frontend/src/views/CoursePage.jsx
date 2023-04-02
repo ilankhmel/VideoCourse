@@ -36,24 +36,22 @@ export default function CoursePage() {
     }, [id])
 
     useEffect(() => {
-            if (courses) {
-                const course = courses.find(course => course.id === id)
-                setCourse(course)
-            } 
-    }, [courses])
-
-    useEffect(() => {
         setCurrChapter(course?.chapters[course.lastPlayingChapter || 0])
     }, [course])
 
     useEffect(() => {
+
+        //If chapter was paused at specific position ( has timeStamp propery ) set videoPlayer accordingly
         if(currChapter?.timeStamp && playerRef.current){
             playerRef.current.currentTime = currChapter?.timeStamp || 0
             
         }
+
     }, [currChapter])
 
     useEffect(() => {
+
+        //If chapter finished set next chapter
         if(playerRef?.current?.currentTime === currChapter?.asset?.resource?.duration){
             setCurrChapter(course?.chapters[course.lastPlayingChapter+1])
         }
@@ -65,6 +63,8 @@ export default function CoursePage() {
     }
 
     const getCompletedCount = () => {
+
+        //Get how many chapters were completed at this course
         let count = 0
         course?.chapters?.forEach(c => (
             c.completed ? count ++ : ''
@@ -75,6 +75,7 @@ export default function CoursePage() {
     const play = () => {
         playerRef.current.play()
     }
+
     const pause = () => {
         const timeStamp = playerRef?.current?.currentTime
         dispatch(setTimestamp(id, currChapter?.id, timeStamp))

@@ -1,8 +1,5 @@
 import React from 'react'
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import CourseCard from '../cmps/CourseCard';
-import { loadCourses } from '../store/actions/course.actions';
 
 export default function Home({courses}) {
 

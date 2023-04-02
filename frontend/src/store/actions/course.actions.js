@@ -3,7 +3,7 @@ import { storageService } from "../../services/storage.service";
 
 export function loadCourses(){
 
-    return async (dispatch, getState) => {
+    return async (dispatch) => {
         try{
             const courses = await courseService.getCourses()
             const fullCoursesPromises = courses.map(async course => {
@@ -24,7 +24,6 @@ export function setCourses(){
 
     return async (dispatch, getState) => {
         try{
-           
             const courses = storageService.loadFromStorage('courses')
             dispatch({type: 'SET_COURSES', courses})
 
@@ -69,7 +68,6 @@ export function setLastPlayingChapter(courseId, chapterIdx){
             const courses = getState().courseModule.courses
             const course = courses.find(course => course.id == courseId)
             course.lastPlayingChapter = chapterIdx
-            console.log(course);
             dispatch({type: 'SET_LAST_CHAPTER', courses})
             storageService.saveToStorage('courses', courses)
         }catch(err){
