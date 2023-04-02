@@ -5,6 +5,8 @@ import ListItem from '../cmps/ListItem'
 import { courseService } from '../services/course.service'
 import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 import { setTimestamp } from '../store/actions/course.actions'
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 
 export default function CoursePage() {
 
@@ -84,7 +86,11 @@ export default function CoursePage() {
 
 
     return (
-        <div className='course-page'>
+        <>
+        {course 
+            ?
+             
+            <div className='course-page'>
             <div className="video-container">
                 <video onPlaying={() => setIsPlaying(true)} onPause={() => setIsPlaying(false)} controls muted id='player' src={currChapter?.asset?.resource?.stream?.url} ref={playerRef}>
                 </video>
@@ -105,6 +111,11 @@ export default function CoursePage() {
                 </div>
             </div>
         </div>
-
+        :
+        <Box className="spinner" sx={{ display: 'flex' }}>
+                    <CircularProgress />
+        </Box>
+    }
+</>
     )
 }

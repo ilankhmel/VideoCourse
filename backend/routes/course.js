@@ -4,7 +4,6 @@ const axios = require("axios")
 //Get all courses
 
 router.get('/', async (req,res)=>{
-    console.log('got');
     try{
         const courses = await axios.get('https://interviews.bigvu.tv/course/list',{auth: {
             username: 'bigvu',
@@ -16,7 +15,8 @@ router.get('/', async (req,res)=>{
         res.status(400).send(err)
     }
 })
-//Get full course
+
+//Get full course (with chapters)
 
 router.get('/:id', async (req,res)=>{
     

@@ -6,7 +6,7 @@ export function loadCourses(){
     return async (dispatch) => {
         try{
             const courses = await courseService.getCourses()
-            const fullCoursesPromises = courses.map(async course => {
+            const fullCoursesPromises = courses?.map(async course => {
                 const fullCourse = await courseService.getFullCourse(course?.id)
                 return fullCourse
             })
@@ -38,14 +38,14 @@ export function setTimestamp(courseId, chapterId, timeStamp){
     return async (dispatch, getState) => {
         try{
             const courses = getState().courseModule.courses
-            const course = courses.find(course => course.id == courseId)
-            let chapter = course.chapters.find(chapter=> chapter.id == chapterId)
+            const course = courses?.find(course => course.id == courseId)
+            let chapter = course?.chapters?.find(chapter=> chapter?.id == chapterId)
             chapter.timeStamp = timeStamp
-            if(chapter.asset.resource.duration == timeStamp) chapter.timeStamp = 0
+            if(chapter?.asset?.resource?.duration == timeStamp) chapter.timeStamp = 0
             if(timeStamp >= 10) chapter.completed = true
 
             function _checkIfCompletedCourse(){
-                return course.chapters.every(chapter => chapter.completed === true)
+                return course?.chapters?.every(chapter => chapter.completed === true)
             }
 
             if(_checkIfCompletedCourse()){
